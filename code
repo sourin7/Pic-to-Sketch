@@ -7,16 +7,15 @@ import scipy.ndimage
 import cv2
 
 
+#importing the pic which I want to covert, make sure the pic need to be in the same location where this project is created
+img="mypic.jpg"  
 
-img="mypic.jpg"
 
-
-
+#convert the image to a grayscale image
 def grayscale(rgb):
 
 	return np.dot(rgb[...,:3],[0.299,0.587,0.114])
-
-
+	
 
 def dodge(front,back):
 
@@ -35,7 +34,7 @@ g=grayscale(s)
 
 i=255-g
 
-
+#blurring the image by applying gausian filters and changing the sigma value
 b=scipy.ndimage.filters.gaussian_filter(i,sigma=20)
 
 r=dodge(b,g)
